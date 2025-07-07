@@ -4,23 +4,23 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-public class AdditionExpression implements  FormulaExpression{
+public class SubtractionExpression implements  FormulaExpression{
     private final FormulaExpression left;
     private final FormulaExpression right;
 
-    public AdditionExpression(FormulaExpression left, FormulaExpression right){
+    public SubtractionExpression(FormulaExpression left, FormulaExpression right){
         this.left = left;
         this.right = right;
     }
 
     @Override
     public String asString() {
-        return left.asString() + " +" + right.asString();
+        return left.asString() + " - " + right.asString();
     }
 
     @Override
     public FormulaExpression replace(String replaceThisStr, String withThatStr) {
-        return new AdditionExpression(left.replace(replaceThisStr,withThatStr), right.replace(replaceThisStr,withThatStr));
+        return new SubtractionExpression(left.replace(replaceThisStr,withThatStr), right.replace(replaceThisStr,withThatStr));
     }
 
     @Override
